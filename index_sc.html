@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Sticky Footer Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+		
+		@-ms-viewport     { width: device-width; }
+		@-o-viewport      { width: device-width; }
+		@viewport         { width: device-width; }
+		
+		/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+	</style>
+
+	<script>
+	// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
+// IT'S JUST JUNK FOR OUR DOCS!
+// ++++++++++++++++++++++++++++++++++++++++++
+/*!
+ * Copyright 2014-2015 Twitter, Inc.
+ *
+ * Licensed under the Creative Commons Attribution 3.0 Unported License. For
+ * details, see https://creativecommons.org/licenses/by/3.0/.
+ */
+// Intended to prevent false-positive bug reports about Bootstrap not working properly in old versions of IE due to folks testing using IE's unreliable emulation modes.
+(function () {
+  'use strict';
+
+  function emulatedIEMajorVersion() {
+    var groups = /MSIE ([0-9.]+)/.exec(window.navigator.userAgent)
+    if (groups === null) {
+      return null
+    }
+    var ieVersionNum = parseInt(groups[1], 10)
+    var ieMajorVersion = Math.floor(ieVersionNum)
+    return ieMajorVersion
+  }
+
+  function actualNonEmulatedIEMajorVersion() {
+    // Detects the actual version of IE in use, even if it's in an older-IE emulation mode.
+    // IE JavaScript conditional compilation docs: https://msdn.microsoft.com/library/121hztk3%28v=vs.94%29.aspx
+    // @cc_on docs: https://msdn.microsoft.com/library/8ka90k2e%28v=vs.94%29.aspx
+    var jscriptVersion = new Function('/*@cc_on return @_jscript_version; @*/')() // jshint ignore:line
+    if (jscriptVersion === undefined) {
+      return 11 // IE11+ not in emulation mode
+    }
+    if (jscriptVersion < 9) {
+      return 8 // IE8 (or lower; haven't tested on IE<8)
+    }
+    return jscriptVersion // IE9 or IE10 in any mode, or IE11 in non-IE11 mode
+  }
+
+  var ua = window.navigator.userAgent
+  if (ua.indexOf('Opera') > -1 || ua.indexOf('Presto') > -1) {
+    return // Opera, which might pretend to be IE
+  }
+  var emulated = emulatedIEMajorVersion()
+  if (emulated === null) {
+    return // Not IE
+  }
+  var nonEmulated = actualNonEmulatedIEMajorVersion()
+
+  if (emulated !== nonEmulated) {
+    window.alert('WARNING: You appear to be using IE' + nonEmulated + ' in IE' + emulated + ' emulation mode.\nIE emulation modes can behave significantly differently from ACTUAL older versions of IE.\nPLEASE DON\'T FILE BOOTSTRAP BUGS based on testing in IE emulation modes!')
+  }
+})();
+	</script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1> 江城子  <small>密州出猎</small></h1>
+      </div>
+      <p class="lead">苏轼</p>
+    </div>
+	<div style="font-size:50px;text-align:center">老夫聊发少年狂， 左牵黄， 右擎苍， 锦帽貂裘， 千骑卷平冈。 <br>为报倾城随太守， 亲射虎， 看孙郎。
+酒酣胸胆尚开张。  <br>鬓微霜， 又何妨！ 持节云中， 何日遣冯唐？  <br>会挽雕弓如满月， 西北望， 射天狼。</div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">thiee.com</p>
+      </div>
+    </footer>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    
+  </body>
+</html>

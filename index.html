@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="Shortcut icon" href="favicon.ico" />
+
+    <title>屎上 最全 地图切片集</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>-->
+    <script src="https://cdn.bootcss.com/js-polyfills/0.1.33/polyfill.js"></script>
+    <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+
+
+        html, body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #tile_url::selection {
+            color: #fff;
+            background: #ff5e2c;
+        }
+
+        #tile_url::-moz-selection {
+            color: #fff;
+            background: #ff5e2c;
+        }
+
+        #tile_url::-webkit-selection {
+            color: #fff;
+            background: #ff5e2c;
+        }
+
+        .map {
+            width: 100%;
+        }
+
+        body{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+        }
+        .tool {
+position: absolute;
+            left:0;
+            top:0;
+            width: 500px;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<div id="map" class="map"></div>
+<div class="tool">
+    <div class="row">
+        <div class=" col-lg-1"></div>
+        <div class=" col-lg-11">
+            <div class="input-group dropup">
+                <input type="text" class="form-control" id="tile_url" aria-label="..."
+                       value="http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default"  data-toggle="tooltip" data-placement="top"
+                            title="多个地址，表示图层叠加显示"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">更换图层 <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li data="tile-01-01" title="2017年9月4日google.cn完全被封，切片无法访问"><a href="#">Google-卫星</a></li>
+                        <li data="tile-01-02" title="2017年9月4日google.cn完全被封，切片无法访问"><a href="#">Google-地形</a></li>
+                        <li data="tile-01-03" title="2017年9月4日google.cn完全被封，切片无法访问"><a href="#">Google-标准</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-02-01"><a href="#">高德-标准</a></li>
+                        <li data="tile-02-02"><a href="#">高德-卫星</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-03-01"><a href="#">OpenStreetMap(OSM)-标准</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-04-01"><a href="#">天地图-标准</a></li>
+                        <li data="tile-04-02"><a href="#">天地图-卫星</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-05-01"><a href="#">CartoDB-水彩</a></li>
+                        <li data="tile-05-02"><a href="#">CartoDB-碳粉</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-06-01"><a href="#">MapBox-标准</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-07-01"><a href="#">ArcGIS-标准</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data="tile-08-01"><a href="#">Thunderforest-Cycle(自行车爱好者地图)</a></li>
+                        <li data="tile-08-02"><a href="#">Thunderforest-Spinal-Map(暗黑地图)</a></li>
+                        <li data="tile-08-03"><a href="#">Thunderforest-Transport(交通地图)</a></li>
+                        <li data="tile-08-04"><a href="#">Thunderforest-Transport-Dark(交通地图暗黑版)</a></li>
+                        <li data="tile-08-05"><a href="#">Thunderforest-Pioneer(交通地图怀旧版)</a></li>
+                        <li data="tile-08-06"><a href="#">Thunderforest-Outdoors(户外爱好者地图)</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+</div>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+</body>
+<script src="unsuan.min.js"></script>
+</html>
